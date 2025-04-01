@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peu Táxi</title>
+    <link rel="icon" type="image/webp" href="logo-peutaxi.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+        
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+        
+        .swiper-slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+
+        /* Fix swiper navigation buttons color */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #fff !important;
+        }
+
+        /* Add mobile menu styles */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Enhance navbar */
+        nav {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Improve hero section */
+        #inicio {
+            background: linear-gradient(to bottom, #fff8e1, #ffffff);
+        }
+
+        /* Add hover effects to buttons */
+        a.bg-yellow-500:hover {
+            box-shadow: 0 8px 15px rgba(234, 181, 8, 0.3);
+        }
+
+        a.bg-blue-500:hover {
+            box-shadow: 0 8px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        a.bg-green-500:hover {
+            box-shadow: 0 8px 15px rgba(34, 197, 94, 0.3);
+        }
+
+        /* Enhance review cards */
+        .review-card {
+            background: linear-gradient(to bottom, #fff, #f9fafb);
+            border-radius: 0.75rem;
+        }
+
+        /* Add gradient to tourist spots section */
+        .swiper-slide img {
+            border: 4px solid #ffffff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .swiper-slide div {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        }
+
+        /* Improve services section */
+        #servicos .bg-white {
+            background: linear-gradient(to bottom, #ffffff, #f9fafb);
+        }
+
+        #servicos .bg-white:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer improvements */
+        footer {
+            background: linear-gradient(to bottom, #1f2937, #111827);
+        }
+
+        footer p {
+            color: #d1d5db;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <img src="logo-peutaxi.webp" alt="Peu Táxi" class="h-12">
+            <div class="hidden md:flex gap-6">
+                <a href="#inicio" class="hover:text-yellow-500">Início</a>
+                <a href="#sobre" class="hover:text-yellow-500">Sobre</a>
+                <a href="#servicos" class="hover:text-yellow-500">Serviços</a>
+                <a href="#contato" class="hover:text-yellow-500">Contato</a>
+            </div>
+            <a href="https://api.whatsapp.com/send?phone=557398049270" 
+               class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition">
+                Reservar Agora
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="pt-24 pb-16">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 fade-in">
+                <span class="text-yellow-500 font-semibold mb-2 block">DESCUBRA PORTO SEGURO</span>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    Experiência VIP em Cada Viagem
+                </h1>
+                <p class="text-gray-600 text-lg mb-8">
+                    Com 25 anos de vivência local, transformamos sua viagem em momentos inesquecíveis. 
+                    Conheça os tesouros escondidos de Porto Seguro com quem realmente entende.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://api.whatsapp.com/send?phone=557398049270&text=Olá,%20gostaria%20de%20fazer%20um%20orçamento%20sem%20compromisso" 
+                       class="bg-yellow-500 text-white px-8 py-4 rounded-full hover:bg-yellow-600 transition flex items-center justify-center gap-2 hover-scale">
+                        <i data-lucide="calculator" class="w-5 h-5"></i>
+                        Orçamento Grátis
+                    </a>
+                    <a href="#servicos" 
+                       class="border-2 border-yellow-500 text-yellow-500 px-8 py-4 rounded-full hover:bg-yellow-50 transition flex items-center justify-center gap-2">
+                        Conheça Nossos Serviços
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 fade-in">
+                <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80" 
+                     alt="Táxi Executivo" class="rounded-2xl shadow-2xl hover-scale">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Conheça o Peu</h2>
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="md:w-1/2">
+                    <p class="text-gray-600 text-lg mb-6">
+                        Com mais de 25 anos de experiência em Porto Seguro, Josimar Maximiano (Peu) 
+                        transformou o serviço de táxi em uma experiência única de turismo.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="text-yellow-500"></i>
+                            <span>Conhecimento profundo da região</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="text-yellow-500"></i>
+                            <span>Atendimento 24 horas</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="text-yellow-500"></i>
+                            <span>Veículo executivo confortável</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="peu.jpg" alt="Peu Táxi" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tourist Spots Section -->
+    <section class="py-16 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">Destinos Incríveis</h2>
+            <p class="text-gray-400 text-center mb-12">Explore os lugares mais encantadores do sul da Bahia</p>
+            
+            <div class="swiper tourist-spots-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="trancoso.webp" alt="Trancoso">
+                        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                            <h3 class="text-2xl font-bold">Trancoso</h3>
+                            <p>O Quadrado histórico e praias paradisíacas</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="arraial.webp" alt="Arraial d'Ajuda">
+                        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                            <h3 class="text-2xl font-bold">Arraial d'Ajuda</h3>
+                            <p>Charme e história em um só lugar</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="caraiva.webp" alt="Caraíva">
+                        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                            <h3 class="text-2xl font-bold">Caraíva</h3>
+                            <p>Um paraíso preservado</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">O que dizem sobre nós</h2>
+            <p class="text-gray-600 text-center mb-8">Descubra por que nossos clientes nos escolhem</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="review-card p-5 rounded-lg shadow-sm">
+                    <i data-lucide="car" class="text-yellow-500 w-8 h-8 mb-3"></i>
+                    <h3 class="font-semibold mb-2">Viagem Confortável</h3>
+                    <p class="text-gray-600">Experiência de viagem com todo o conforto que você merece.</p>
+                </div>
+                
+                <div class="review-card p-5 rounded-lg shadow-sm">
+                    <i data-lucide="shield" class="text-yellow-500 w-8 h-8 mb-3"></i>
+                    <h3 class="font-semibold mb-2">Segurança</h3>
+                    <p class="text-gray-600">Transporte seguro com motorista experiente e veículo bem mantido.</p>
+                </div>
+                
+                <div class="review-card p-5 rounded-lg shadow-sm">
+                    <i data-lucide="camera" class="text-yellow-500 w-8 h-8 mb-3"></i>
+                    <h3 class="font-semibold mb-2">Paradas Fotográficas</h3>
+                    <p class="text-gray-600">Pare nos lugares mais bonitos para registrar momentos inesquecíveis.</p>
+                </div>
+                
+                <div class="review-card p-5 rounded-lg shadow-sm">
+                    <i data-lucide="map-pin" class="text-yellow-500 w-8 h-8 mb-3"></i>
+                    <h3 class="font-semibold mb-2">Dicas Locais</h3>
+                    <p class="text-gray-600">Conheça os segredos da região com quem realmente entende.</p>
+                </div>
+                
+                <div class="review-card p-5 rounded-lg shadow-sm">
+                    <i data-lucide="helping-hand" class="text-yellow-500 w-8 h-8 mb-3"></i>
+                    <h3 class="font-semibold mb-2">Prestativo</h3>
+                    <p class="text-gray-600">Sempre pronto a ajudar e tornar sua experiência ainda melhor.</p>
+                </div>
+                
+                <div class="review-card p-5 rounded-lg shadow-sm">
+                    <i data-lucide="heart-handshake" class="text-yellow-500 w-8 h-8 mb-3"></i>
+                    <h3 class="font-semibold mb-2">Comprometimento</h3>
+                    <p class="text-gray-600">Dedicação total à satisfação e bem-estar dos clientes.</p>
+                </div>
+                
+                <div class="review-card p-5 rounded-lg shadow-sm">
+                    <i data-lucide="clock" class="text-yellow-500 w-8 h-8 mb-3"></i>
+                    <h3 class="font-semibold mb-2">Pontualidade</h3>
+                    <p class="text-gray-600">Sempre no horário, respeitando seu tempo e programação.</p>
+                </div>
+                
+                <div class="review-card p-5 rounded-lg shadow-sm">
+                    <i data-lucide="smile" class="text-yellow-500 w-8 h-8 mb-3"></i>
+                    <h3 class="font-semibold mb-2">Simpatia</h3>
+                    <p class="text-gray-600">Atendimento caloroso que faz você se sentir em casa.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8 items-center justify-center pt-12">
+            <div class="google-badge bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+            <div class="flex items-center gap-2 mb-3">
+                <img src="googlebusiness-icon.webp" alt="Google" class="w-8 h-8">
+                <span class="font-bold text-lg">Google Business</span>
+            </div>
+            <div class="flex items-center gap-1 text-yellow-500 mb-2">
+                <i data-lucide="star" class="fill-current"></i>
+                <i data-lucide="star" class="fill-current"></i>
+                <i data-lucide="star" class="fill-current"></i>
+                <i data-lucide="star" class="fill-current"></i>
+                <i data-lucide="star" class="fill-current"></i>
+            </div>
+            <p class="text-gray-700 mb-4">26 avaliações de 5 estrelas</p>
+            <a href="https://g.co/kgs/dVNf1jJ" target="_blank" rel="noopener noreferrer" 
+               class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full transition flex items-center gap-2">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                Ver no Google
+            </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Nossos Serviços</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i data-lucide="map" class="text-yellow-500 mb-4 w-12 h-12"></i>
+                    <h3 class="text-xl font-bold mb-3">Passeios Turísticos</h3>
+                    <p class="text-gray-600">
+                        Conheça Trancoso, Arraial d'Ajuda, Caraíva e outros destinos com quem realmente conhece.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i data-lucide="plane" class="text-yellow-500 mb-4 w-12 h-12"></i>
+                    <h3 class="text-xl font-bold mb-3">Transfer Aeroporto</h3>
+                    <p class="text-gray-600">
+                        Pontualidade e conforto no seu trajeto de/para o aeroporto de Porto Seguro.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i data-lucide="calendar" class="text-yellow-500 mb-4 w-12 h-12"></i>
+                    <h3 class="text-xl font-bold mb-3">Eventos</h3>
+                    <p class="text-gray-600">
+                        Transporte executivo para eventos, casamentos e ocasiões especiais.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Entre em Contato</h2>
+            <div class="flex flex-col md:flex-row gap-8 justify-center">
+                <a href="https://api.whatsapp.com/send?phone=557398049270" 
+                   class="flex items-center gap-3 bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    (73) 99804-9270
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=5573988507577" 
+                   class="flex items-center gap-3 bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    (73) 98850-7577
+                </a>
+                <a href="mailto:peutrancoso123@gmail.com" 
+                   class="flex items-center gap-3 bg-yellow-500 text-white px-6 py-3 rounded-full hover:bg-yellow-600 transition">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                    peutrancoso123@gmail.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2023 Peu Táxi - CNPJ: 41.988.508/0001-27</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.querySelector('.mobile-menu');
+            menu.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.mobile-menu').classList.remove('active');
+            });
+        });
+
+        // Initialize Swiper
+        new Swiper('.tourist-spots-slider', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            }
+        });
+    </script>
+</body>
+</html>
